@@ -14,6 +14,10 @@ const routes: Array<RouteConfig> = [
     path: "/baseballTeamList",
     component: () => import("../views/BaseballTeamList.vue"),
   },
+  {
+    path: "/baseballTeamDetail/:id",
+    component: () => import("../views/BaseballTeamDetail.vue"),
+  },
 ];
 
 const router = new VueRouter({
