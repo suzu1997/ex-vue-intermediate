@@ -1,5 +1,17 @@
 <template>
-  <div></div>
+  <div class="container">
+    <div class="item">球団名</div>
+    <div>{{ currentTeam.teamName }}</div>
+    <div class="item">本拠地</div>
+    <div>{{ currentTeam.headquarters }}</div>
+    <div class="item">発足日</div>
+    <div>{{ currentTeam.formattedInauguration }}</div>
+    <div class="item">歴史</div>
+    <pre class="history">{{ currentTeam.history }}</pre>
+    <div>
+      <button v-on:click="back">戻る</button>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
