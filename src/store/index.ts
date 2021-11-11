@@ -106,5 +106,16 @@ export default new Vuex.Store({
     getTeams(state) {
       return state.teams;
     },
+    /**
+     * IDで野球チームを検索し返す.
+     *
+     * @param state - Vuexのstateオブジェクト
+     * @returns IDで絞り込んだ野球チーム情報
+     */
+    getTeamById(state) {
+      return (id: number) => {
+        return state.teams.find((team) => team.id === id);
+      };
+    },
   }, // end getters
 });
