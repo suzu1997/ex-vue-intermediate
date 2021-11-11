@@ -1,5 +1,14 @@
 <template>
-  <div></div>
+  <div>
+    <h1>野球チーム一覧</h1>
+    <ul>
+      <li v-for="team of getTeams" :key="team.id">
+        <router-link :to="'/baseballTeamDetail/' + team.id">
+          {{ team.teamName }}
+        </router-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
