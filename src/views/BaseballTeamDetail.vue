@@ -29,9 +29,9 @@ export default class baseballTeabDetail extends Vue {
    * リクエストパラメータのIDから1件のチーム情報を取得.
    */
   created(): void {
-    const id = parseInt(this.$route.params.id);
+    const teamId = parseInt(this.$route.params.id);
 
-    this.currentTeam = this.$store.getters.getTeamById(id);
+    this.currentTeam = this.$store.getters.getTeamById(teamId);
   }
   /**
    * チーム一覧ページに戻る.
