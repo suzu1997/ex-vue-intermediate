@@ -33,6 +33,12 @@ export default class baseballTeabDetail extends Vue {
 
     this.currentTeam = this.$store.getters.getTeamById(id);
   }
+  /**
+   * チーム一覧ページに戻る.
+   */
+  back(): void {
+    this.$router.push("/baseballTeamList");
+  }
 }
 </script>
 
