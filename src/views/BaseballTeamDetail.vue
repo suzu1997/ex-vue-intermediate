@@ -42,4 +42,18 @@ export default class baseballTeabDetail extends Vue {
 }
 </script>
 
-<style></style>
+<style scoped>
+.container {
+  border: 1px solid black;
+  width: 320px;
+  text-align: left;
+  padding: 10px;
+  margin: 0 auto;
+}
+.item {
+  font-weight: bold;
+}
+.history {
+  margin-top: 0px;
+}
+</style>
