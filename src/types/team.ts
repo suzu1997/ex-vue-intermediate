@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 /**
  * 野球チームを表す部品用のクラス.
  */
@@ -14,6 +16,10 @@ export class Team {
     // 歴史
     private _history: string
   ) {}
+
+  get formattedInauguration(): string {
+    return format(this.inauguration, "yyyy年MM月dd日");
+  }
 
   public get id(): number {
     return this._id;
