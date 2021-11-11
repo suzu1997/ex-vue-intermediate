@@ -8,6 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   strict: true,
   state: {
+    // 野球チーム一覧
     teams: [
       new Team(
         10,
@@ -95,4 +96,15 @@ export default new Vuex.Store({
       ),
     ],
   }, // end state
+  getters: {
+    /**
+     * 野球チーム一覧を返す.
+     *
+     * @param state - Vuexのstateオブジェクト
+     * @returns 野球チーム一覧情報
+     */
+    getTeams(state) {
+      return state.teams;
+    },
+  }, // end getters
 });
