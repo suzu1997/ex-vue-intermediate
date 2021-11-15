@@ -22,6 +22,10 @@ const routes: Array<RouteConfig> = [
     path: "/searchHotel",
     component: () => import("../views/SearchHotel.vue"),
   },
+  {
+    path: "/searchClothes",
+    component: () => import("../views/SearchClothes.vue"),
+  },
 ];
 
 const router = new VueRouter({
