@@ -19,7 +19,7 @@ const routes: Array<RouteConfig> = [
     component: () => import("../views/BaseballTeamDetail.vue"),
   },
   {
-    path: "searchHotel",
+    path: "/searchHotel",
     component: () => import("../views/SearchHotel.vue"),
   },
 ];
