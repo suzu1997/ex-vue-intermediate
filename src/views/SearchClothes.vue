@@ -1,40 +1,63 @@
 <template>
   <div class="container">
-    <h2>衣類検索</h2>
-    <div class="select">
-      <div class="gender-select">
-        <input type="radio" name="gender" value="man" id="man" />
-        <label for="man">Man</label>
-        <br />
-        <input type="radio" name="gender" value="woman" id="woman" />
-        <label for="woman">Woman</label>
-        <br />
-        <button>検索</button>
+    <div class="searchArea">
+      <h2>衣類検索</h2>
+      <div class="select">
+        <div class="gender-select">
+          <input
+            type="radio"
+            name="gender"
+            value="0"
+            id="man"
+            v-model="gender"
+          />
+          <label for="man">Man</label>
+          <br />
+          <input
+            type="radio"
+            name="gender"
+            value="1"
+            id="woman"
+            v-model="gender"
+          />
+          <label for="woman">Woman</label>
+          <br />
+        </div>
+        <select v-model="color" class="color-select">
+          <option>赤</option>
+          <option>青</option>
+          <option>白</option>
+          <option>黄</option>
+        </select>
       </div>
-      <select name="" id="">
-        <option value="">赤</option>
-        <option value="">青</option>
-        <option value="">白</option>
-        <option value="">黄</option>
-      </select>
+      <button v-on:click="searchClothes">検索</button>
     </div>
-    <div class="result">
+    <div v-if="noResult">
+      🙇‍♀️該当する衣類が<br />
+      見つかりませんでした。
+    </div>
+    <div class="result" v-for="clothe of searchResult" :key="clothe.id">
       <table class="result-table">
         <tr>
           <th>ジャンル</th>
-          <td>ジャケット</td>
+          <td>{{ clothe.genre }}</td>
         </tr>
         <tr>
           <th>サイズ</th>
-          <td>S</td>
+          <td>{{ clothe.size }}</td>
         </tr>
         <tr>
           <th>価格</th>
-          <td>10000</td>
+          <td>{{ clothe.price }}</td>
+        </tr>
+        <tr>
+          <th>性別</th>
+          <td v-if="clothe.gender === 0">Man</td>
+          <td v-else-if="clothe.gender === 1">Woman</td>
         </tr>
         <tr>
           <th>色</th>
-          <td>赤</td>
+          <td>{{ clothe.color }}</td>
         </tr>
       </table>
     </div>
@@ -76,20 +99,28 @@ export default class SearchClothes extends Vue {
 
 <style scoped>
 .container {
-  width: 300px;
+  width: 250px;
   margin: 0 auto;
   border: 1px solid #000;
-  /* text-align: left; */
-  padding: 10px;
+  padding: 10px 30px;
+}
+.searchArea {
+  text-align: left;
 }
 .select {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: start;
+  margin-bottom: 10px;
 }
 .gender-select {
   text-align: left;
+  font-size: 1.1rem;
+}
+.color-select {
+  padding: 5px;
+  border-radius: 5px;
 }
 .result {
   border: 1px solid #000;
