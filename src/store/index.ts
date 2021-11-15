@@ -3,6 +3,7 @@ import Vuex from "vuex";
 
 import { Team } from "../types/team";
 import { Hotel } from "../types/hotel";
+import { Clothe } from "../types/clothe";
 
 Vue.use(Vuex);
 
@@ -145,6 +146,13 @@ export default new Vuex.Store({
         true
       ),
     ],
+    clothes: [
+      new Clothe(10, "洋服", "ジャケット", 0, "赤", 10000, "S"),
+      new Clothe(20, "洋服", "パンツ", 0, "白", 20000, "M"),
+      new Clothe(30, "洋服", "Ｔシャツ", 1, "青", 5000, "M"),
+      new Clothe(40, "洋服", "帽子", 1, "白", 10000, "S"),
+      new Clothe(50, "洋服", "ジャケット", 0, "黄", 15000, "L"),
+    ],
   }, // end state
   getters: {
     /**
@@ -185,6 +193,19 @@ export default new Vuex.Store({
     getHotelsByPrice(state) {
       return (price: number) =>
         state.hotels.filter((hotel) => hotel.price <= price);
+    },
+    /**
+     * 性別と色で衣類を検索し返す.
+     *
+     * @param state - Vuexのstateオブジェクト
+     * @returns - 性別と色で絞り込んだ衣類一覧
+     */
+    getClothesByGenderAndColor(state) {
+      return (gender: number, color: string) => {
+        return state.clothes.filter(
+          (clothe) => clothe.gender === gender && clothe.color === color
+        );
+      };
     },
   }, // end getters
 });
