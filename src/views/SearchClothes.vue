@@ -41,11 +41,37 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-
+/**
+ *  衣類を検索する機能を表すクラスコンポーネント.
+ */
 @Component
-export default class SearchClothes extends Vue {}
+export default class SearchClothes extends Vue {
+  // 選択した性別
+  private gender = 0;
+  // 選択した色
+  private color = "赤";
+  // 検索結果
+  private searchResult = [];
+  // 検索結果がないフラグ
+  private noResult = false;
+
+  /**
+   * 条件にあった衣類を検索する.
+   */
+  searchClothes(): void {
+    this.searchResult = this.$store.getters.getClothesByGenderAndColor(
+      Number(this.gender),
+      this.color
+    );
+    if (this.searchResult.length === 0) {
+      this.noResult = true;
+    } else {
+      this.noResult = false;
+    }
+  }
+}
 </script>
 
 <style scoped>
