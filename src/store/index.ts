@@ -185,12 +185,12 @@ export default new Vuex.Store({
       return state.hotels;
     },
     /**
-     * 値段でホテルを検索し返す.
+     * 入力した値段以下のホテルを検索し返す.
      *
      * @param state - Vuexのstateオブジェクト
-     * @returns 値段で絞り込んだホテル一覧
+     * @returns 入力した値段以下のホテル一覧
      */
-    getHotelsByPrice(state) {
+    getHotelsLessThanPrice(state) {
       return (price: number) =>
         state.hotels.filter((hotel) => hotel.price <= price);
     },

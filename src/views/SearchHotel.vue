@@ -52,7 +52,9 @@ export default class SearchHotel extends Vue {
       this.searchResult = this.$store.getters.getAllHotels;
       return;
     }
-    this.searchResult = this.$store.getters.getHotelsByPrice(this.inputPrice);
+    this.searchResult = this.$store.getters.getHotelsLessThanPrice(
+      this.inputPrice
+    );
 
     if (this.searchResult.length === 0) {
       this.noResult = true;
