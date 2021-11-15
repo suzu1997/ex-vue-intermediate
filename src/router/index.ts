@@ -18,6 +18,10 @@ const routes: Array<RouteConfig> = [
     path: "/baseballTeamDetail/:id",
     component: () => import("../views/BaseballTeamDetail.vue"),
   },
+  {
+    path: "searchHotel",
+    component: () => import("../views/SearchHotel.vue"),
+  },
 ];
 
 const router = new VueRouter({

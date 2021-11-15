@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/baseballTeamList">野球チーム一覧</router-link> |
+      <router-link to="/searchHotel">ホテル検索</router-link> |
     </div>
     <router-view />
   </div>
