@@ -167,5 +167,24 @@ export default new Vuex.Store({
         return state.teams.find((team) => team.id === id);
       };
     },
+    /**
+     * ホテル一覧を返す.
+     *
+     * @param state - Vuexのstateオブジェクト
+     * @returns - ホテル一覧
+     */
+    getAllHotels(state) {
+      return state.hotels;
+    },
+    /**
+     * 値段でホテルを検索し返す.
+     *
+     * @param state - Vuexのstateオブジェクト
+     * @returns 値段で絞り込んだホテル一覧
+     */
+    getHotelsByPrice(state) {
+      return (price: number) =>
+        state.hotels.filter((hotel) => hotel.price <= price);
+    },
   }, // end getters
 });
